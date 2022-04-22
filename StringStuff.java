@@ -18,14 +18,49 @@ import java.nio.file.Path;
 
 public class StringStuff {
 
-    public static int findRun(String someString, int i, int counter, int biggestRun, char lastChar) {
+    public static int findRun(char[] someChars) {
 
-        int i = 0;
         int counter = 0;
         int biggestRun = counter;
         String currentChar = "";
+        List<Integer> run = new ArrayList<Integer>();
+        char[] newCharArray = new char[someChars.length + 1];
 
+        // making a new array that is 1 element longer
+        for (int j = 0; j < someChars.length; j++) {
+
+            newCharArray[j] = someChars[j];
+
+        }
+
+        // adding an extra character to the new array so that when it gets checked it does all of the elements and does not leave out the last one.
+        if (someChars[-1] == 'a') {
+            
+            newCharArray[-1] = ';';
         
+        } else {
+
+            newCharArray[-1] = 'a';
+
+        }
+
+        Arrays.sort(someChars);
+
+        for (int charIndex = 1; charIndex < someChars.length; charIndex = charIndex + 1) {
+
+            if (someChars[charIndex] != someChars[charIndex - 1]) {
+
+                if (counter > biggestRun) {
+
+                    biggestRun = counter;
+
+
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -36,10 +71,7 @@ public class StringStuff {
 
         System.out.println(someString);
 
-        // String strArray[] = someString.split("\r?\n");
-
-        // System.out.println(strArray[0]);
-        // System.out.println(strArray[1]);
+        char[] someChars = someString.toCharArray();
 
     }
 }
