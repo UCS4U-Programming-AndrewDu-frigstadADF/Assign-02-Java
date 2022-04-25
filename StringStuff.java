@@ -1,5 +1,4 @@
-
-/**
+/** doing string stuff by finding the biggest run
  * doing strign stuff with recursions
  * 
  * Author Andrew Du-frigstad
@@ -21,7 +20,7 @@ public class StringStuff {
     public static int findRun(char[] someChars) {
 
         // variables
-        int counter = 0;
+        int counter = 1;
         int biggestRun = counter;
         String currentChar = "";
         List<Integer> run = new ArrayList<Integer>();
