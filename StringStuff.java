@@ -20,6 +20,7 @@ public class StringStuff {
 
     public static int findRun(char[] someChars) {
 
+        // variables
         int counter = 0;
         int biggestRun = counter;
         String currentChar = "";
@@ -47,16 +48,19 @@ public class StringStuff {
 
         for (int charIndex = 1; charIndex < newCharArray.length; charIndex = charIndex + 1) {
 
+            // if the previous index does not math the current one then...
             if (newCharArray[charIndex] != newCharArray[charIndex - 1]) {
 
+                // if the new run of letters is more than the biggest then make it equal the biggest
                 if (counter > biggestRun) {
 
                     biggestRun = counter;
 
                 }
 
-                counter = counter + 1;
+                counter = 1;
 
+                // if the new character is still the biggest, make it bigger
             } else {
                 counter = counter + 1;
             }
@@ -70,10 +74,13 @@ public class StringStuff {
         Path someFile = Path.of("C:\\Users\\s278552\\Everything\\Assignments\\Assign-02-Java\\string.txt");
         String someString = Files.readString(someFile);
 
+        // printing the string
         System.out.println(someString);
 
+        // converting the string to an array of characters
         char[] someChars = someString.toCharArray();
 
+        // call and print the biggest run
         int run = findRun(someChars);
 
         System.out.println(run);
